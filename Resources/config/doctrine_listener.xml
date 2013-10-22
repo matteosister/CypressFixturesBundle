@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="cypress_fixtures.orm.doctrine_subscriber" class="Cypress\FixturesBundle\Listener\ORM\UpdateRemoveSubscriber">
+            <argument type="service" id="cypress_fixtures.staleness_checker" />
+            <tag name="doctrine.event_subscriber" />
+        </service>
+
+        <service id="cypress_fixtures.mongo_db.doctrine_subscriber" class="Cypress\FixturesBundle\Listener\MongoDB\UpdateRemoveSubscriber">
+            <argument type="service" id="cypress_fixtures.staleness_checker" />
+            <tag name="doctrine_mongodb.odm.event_subscriber" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,24 @@
+{
+    "name": "cypresslab/fixtures-bundle",
+    "description": "A different take to the fixtures staleness problem",
+    "autoload": {
+        "psr-0": { "Cypress\\FixturesBundle": "" }
+    },
+    "target-dir": "Cypress/ConsoleDefaultsBundle",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7.28",
+        "mockery/mockery": "@stable"
+    },
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Matteo Giachino",
+            "email": "matteog@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
