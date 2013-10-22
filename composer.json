@@ -4,7 +4,7 @@
     "autoload": {
         "psr-0": { "Cypress\\FixturesBundle": "" }
     },
-    "target-dir": "Cypress/ConsoleDefaultsBundle",
+    "target-dir": "Cypress/FixturesBundle",
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3"
