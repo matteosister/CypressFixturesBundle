@@ -28,7 +28,7 @@ class LoadCommand extends ContainerAwareCommand
     public function configure()
     {
         $this
-            ->setName('viola:fixtures')
+            ->setName('cypress:fixtures')
             ->addOption('force', 'f', InputOption::VALUE_NONE)
             ->setDescription('fixtures anti wtf');
     }
