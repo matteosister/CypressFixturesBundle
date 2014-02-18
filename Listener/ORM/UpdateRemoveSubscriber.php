@@ -36,7 +36,7 @@ class UpdateRemoveSubscriber implements EventSubscriber
      */
     public function getSubscribedEvents()
     {
-        return ['preRemove', 'preUpdate'];
+        return ['preRemove', 'preUpdate', 'preInsert'];
     }
 
     public function preRemove(LifecycleEventArgs $args)
@@ -45,6 +45,11 @@ class UpdateRemoveSubscriber implements EventSubscriber
     }
 
     public function preUpdate(LifecycleEventArgs $args)
+    {
+        $this->storage->setForceReload();
+    }
+
+    public function preInsert(LifecycleEventArgs $args)
     {
         $this->storage->setForceReload();
     }
