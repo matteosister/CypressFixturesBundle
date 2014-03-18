@@ -16,6 +16,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
  * Class LoadCommand
@@ -59,6 +60,9 @@ class LoadCommand extends ContainerAwareCommand
             $output->write(str_pad(sprintf('<info>%s</info>', $fixtureName), 100, ".", STR_PAD_RIGHT));
             $fixtureInstance = new $fixtureName;
             $this->checkFixtureClass($fixtureInstance);
+            if ($fixtureInstance instanceof ContainerAwareInterface) {
+                $fixtureInstance->setContainer($this->getContainer());
+            }
             $fixtureInstance->setReferences($references);
             $fixtureInstance->load($this->getContainer()->get($fixtureInstance->getObjectManager()));
             $references = $fixtureInstance->getReferences();
